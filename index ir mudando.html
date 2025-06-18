@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kassiano Boer - Músico</title>
+  <style>
+/* Título com efeito de digitação */
+.typewriter { /* Este seletor não está no HTML, mas está no CSS */ }
+
+/* Banner com classe "banner" */
+.banner {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: block; /* ou ajuste conforme seu layout */
+  width: 100%;    /* exemplo */
+}
+
+/* 2. Animação para mostrar depois do typewriter */
+.show-banner {
+  opacity: 1;
+}
+/* No início, nada aparece */
+#header, #banner, #content {
+  opacity: 0;
+}
+
+/* Previne scroll durante animação inicial */
+body {
+  overflow: hidden;
+}
+
+/* Animação fade in */
+@keyframes fadeIn {
+  to { opacity: 1; } 
+}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+    body, html {
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      background: #000;
+      overflow-x: hidden;
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      opacity: 0; /* Esconde o cabeçalho inicialmente */
+      transform: translateY(-100%); /* Move para cima */
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transição para a animação */
+    }
+
+    nav.show-nav {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: #ccc;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('banner.jpg') 10% 25%/cover no-repeat;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      opacity: 0; /* Esconde o nome inicialmente */
+      transform: translateY(20px); /* Move para baixo */
+      transition: opacity 1s ease-out, transform 1s ease-out; /* Transição para a animação */
+    }
+
+    .hero-content.show-name {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-content .hero-image {
+      opacity: 0; /* Esconde a imagem inicialmente */
+      transition: opacity 1s ease-out; /* Transição para a animação */
+    }
+
+    .hero-content .hero-image.show-image {
+      opacity: 1;
+    }
+    
+    .hero h1 {
+      font-family: 'Brush Script MT', 'Dancing Script', cursive;
+      font-size: 4rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    
+    .hero .subtitle {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+    
+    /* Music Section */
+    .music-section {
+      padding: 100px 0;
+      background: #000;
+      text-align: center;
+    }
+    
+    .music-section h2 {
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+    }
+    
+    .music-player {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+    }
+    
+    /* Videos Section */
+    .videos-section {
+      padding: 100px 0;
+      background: url('bar_vintage_sharp.jpg') center/cover no-repeat fixed;
+      position: relative;
+    }
+    
+    .videos-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+    }
+    
+    .videos-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    
+    .videos-section h2 {
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+    }
+    
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .video-item {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    
+    .video-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .video-item .video-info {
+      padding: 20px;
+    }
+    
+    /* Bio Section */
+    .bio-section {
+      padding: 100px 0;
+      background: #000;
+      position: relative;
+    }
+    
+    .bio-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .bio-text h2 {
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+    
+    .bio-carousel {
+      position: relative;
+      overflow: hidden;
+      min-height: 200px;
+    }
+    
+    .bio-slides {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .bio-slide {
+  display: none; /* esconde por padrão */
+}
+
+.bio-slide.active {
+  display: block; /* mostra só o slide ativo */
+}
+    
+    .bio-slide.active {
+      opacity: 1;
+    }
+    
+    .bio-slide h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+    
+    .bio-slide p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+    
+    .bio-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .bio-nav-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .bio-nav-btn:hover,
+    .bio-nav-btn.active {
+      background: rgba(255,255,255,0.4);
+      transform: translateY(-2px);
+    }
+    
+    .bio-image {
+      text-align: center;
+    }
+    
+    .bio-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: opacity 1.5s ease;
+}
+
+.fade-out {
+  opacity: 0;
+}
+    
+    /* Tour Section */
+    .tour-section {
+      padding: 100px 0;
+      background: #111;
+      text-align: center;
+    }
+    
+    .tour-section h2 {
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+    }
+    
+    .tour-info {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      position: relative; /* Adicionado para posicionamento dos botões */
+    }
+
+    .tour-carousel {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 600px; /* Ajuste conforme necessário */
+      margin: 0 auto;
+    }
+
+    .tour-slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .tour-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .tour-slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .tour-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 10;
+      border-radius: 5px;
+    }
+
+    .tour-nav-btn.prev {
+      left: 10px;
+    }
+
+    .tour-nav-btn.next {
+      right: 10px;
+    }
+    
+    /* Contato Section */
+    .contato-section {
+      padding: 100px 0;
+      background: #000;
+      text-align: center;
+    }
+    
+    .contato-section h2 {
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+    }
+    
+    .contato-info {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contato-info p {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+    
+    .contato-info a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .contato-info a:hover {
+      color: #ccc;
+    }
+    
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.3s ease;
+    }
+    
+    .whatsapp-btn:hover {
+      background: #1da851;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      background: #000;
+      text-align: center;
+      border-top: 1px solid #333;
+    }
+    
+    footer p {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero .subtitle {
+        font-size: 1rem;
+      }
+      
+      .bio-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .bio-carousel {
+        order: 2;
+      }
+      
+      .bio-image {
+        order: 1;
+        margin-bottom: 30px;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 10px;
+      }
+      
+      nav a {
+        font-size: 12px;
+      }
+      
+      .music-section h2,
+      .videos-section h2,
+      .bio-text h2,
+      .tour-section h2,
+      .contato-section h2 {
+        font-size: 2rem;
+      }
+    }
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  } 
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h1 {
+  animation: slideDownFade 1.5s ease forwards;
+}
+.tour-info .agenda-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* centraliza a imagem */
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#videos">VIDEOS</a>
+    <a href="#bio">BIO</a>
+    <a href="#tour">TOUR / AGENDA</a>
+    <a href="#music">MUSIC</a>
+    <a href="#contato">CONTATO</a>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Kassiano Boer</h1>
+      <p class="subtitle">Blues • Folk • Rock • Country • Surf Music</p>
+    </div>
+  </section>
+
+  <section id="videos" class="videos-section">
+    <div class="videos-content">
+      <h2 class="fade-in">VIDEOS</h2>
+      <div class="video-grid">
+  <div class="video-item">
+    <iframe width="315" height="560" src="https://www.youtube.com/embed/OQ7JpPgYnac" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="video-item">
+    <iframe width="315" height="560" src="https://www.youtube.com/embed/EC7mlXzszxc" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+  </section>
+
+  <section id="bio" class="bio-section">
+    <div class="bio-content">
+      <div class="bio-text">
+        <h2 class="fade-in">BIO</h2>
+        <div class="bio-carousel">
+          <div class="bio-slides">
+            <div class="bio-slide active">
+              <h3>História</h3>
+              <p>Nascido em uma família que adora música, iniciou ainda criança sua formação, cantando tudo que ouvia no rádio e aos 8 anos, aprendia a tocar violão como auto-didata. Sempre tocava e cantava junto com os primos nas festas de família.</p>
+            </div>
+            <div class="bio-slide">
+              <h3>Carreira</h3>
+              <p>Músico profissional há 10 anos, Kassiano ja realizou shows em grandes eventos e estabelecimentos de diversas regiões do Sul do país, como Serra Gaúcha, Litoral gaúcho, região Metropolitana, Vale dos sinos e Vale do Taquari. E assim vai trilhando sua caminhada.</p>
+            </div>
+            <div class="bio-slide">
+              <h3>Estilo</h3>
+              <p>Com influências do Rock, Folk, Country, Blues, Pop Rock e Surf Music, Kassiano traz autenticidade no repertório nas suas versões de clássicos e top hits que todo mundo gosta de ouvir e cantar junto. Dentro desse estilo, organiza um repertório que combine com o local do próximo show.</p>
+            </div>
+          </div>
+          <div class="bio-navigation">
+            <button class="bio-nav-btn active" data-slide="0">História</button>
+            <button class="bio-nav-btn" data-slide="1">Carreira</button>
+            <button class="bio-nav-btn" data-slide="2">Estilo</button>
+          </div>
+        </div>
+      </div>
+      <div class="bio-image">
+        <img src="foto3.jpg" alt="Kassiano Boer">
+      </div>
+    </div>
+  </section>
+
+  <section id="tour" class="tour-section">
+  <h2 class="fade-in">TOUR / AGENDA</h2>
+  <div class="tour-info">
+    <div class="tour-carousel">
+      <div class="tour-slides">
+        <div class="tour-slide">
+          <img src="agenda_art.jpg" alt="Agenda 1">
+        </div>
+        <div class="tour-slide">
+          <img src="agenda_art2.jpg" alt="Agenda 2">
+        </div>
+        <div class="tour-slide">
+          <img src="agenda_art3.jpg" alt="Agenda 3">
+        </div>
+      </div>
+      <button class="tour-nav-btn prev">&#10094;</button>
+      <button class="tour-nav-btn next">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+  <section id="music" class="music-section">
+    <h2 class="fade-in">MUSIC</h2>
+    <div class="music-player">
+      <p>Ouça as músicas de Kassiano Boer</p>
+      <p>Com influências do Rock, Folk, Country, Blues, Pop Rock e Surf Music, Kassiano traz autenticidade no repertório nas suas versões de clássicos e top hits que todo mundo gosta de ouvir e cantar junto.</p>
+    </div>
+  </section>
+
+  <section id="contato" class="contato-section">
+    <h2 class="fade-in">CONTATO</h2>
+    <div class="contato-info">
+      <p><strong>Email:</strong> <a href="mailto:kassianoboer95@hotmail.com">kassianoboer95@hotmail.com</a></p>
+      <p><strong>WhatsApp:</strong> (54) 99670-8788</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/kassianoboer/" target="_blank">@kassianoboer</a></p>
+      
+      <a href="https://wa.me/5554996708788" class="whatsapp-btn">FALE COMIGO AGORA</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Kassiano Boer. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Bio carousel functionality
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.bio-slide');
+  const navButtons = document.querySelectorAll('.bio-nav-btn');
+  const bioImage = document.querySelector('.bio-image img');
+
+  const bioImages = [
+    'foto_historia.jpg', // Slide 0
+    'foto_carreira.jpg', // Slide 1
+    'foto_estilo.jpg'    // Slide 2
+  ];
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    navButtons.forEach(btn => btn.classList.remove('active'));
+
+    slides[index].classList.add('active');
+    navButtons[index].classList.add('active');
+
+    // Trocar imagem com fade:
+    bioImage.classList.add('fade-out');
+    setTimeout(() => {
+      bioImage.src = bioImages[index];
+      bioImage.classList.remove('fade-out');
+    }, 1500);
+
+    currentSlide = index;
+  }
+
+  navButtons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      showSlide(index);
+    });
+  });
+
+  showSlide(0);
+const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.1
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('show');
+      appearOnScroll.unobserve(fader);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+
+  // Tour carousel functionality
+  let currentTourSlide = 0;
+  const tourSlides = document.querySelectorAll('.tour-slide');
+  const totalTourSlides = tourSlides.length;
+  const tourSlidesContainer = document.querySelector('.tour-slides');
+
+  function showTourSlide(index) {
+    if (index >= totalTourSlides) {
+      currentTourSlide = 0;
+    } else if (index < 0) {
+      currentTourSlide = totalTourSlides - 1;
+    } else {
+      currentTourSlide = index;
+    }
+    tourSlidesContainer.style.transform = `translateX(${-currentTourSlide * 100}%)`;
+  }
+
+  document.querySelector('.tour-nav-btn.next').addEventListener('click', () => {
+    showTourSlide(currentTourSlide + 1);
+  });
+
+  document.querySelector('.tour-nav-btn.prev').addEventListener('click', () => {
+    showTourSlide(currentTourSlide - 1);
+  });
+
+  showTourSlide(0); // Mostra o primeiro slide ao carregar a página
+
+  // Initial animation sequence
+  document.addEventListener('DOMContentLoaded', () => {
+    const heroContent = document.querySelector('.hero-content');
+    const heroImage = document.querySelector('.hero .hero-image img'); // Assuming you'll add an image here
+    const nav = document.querySelector('nav');
+
+    // 1. Show Name (hero-content)
+    setTimeout(() => {
+      heroContent.classList.add('show-name');
+    }, 500); // Adjust delay as needed
+
+    // 2. Show Photo (hero-image) - Assuming you'll add an image to the hero section
+    // If you don't have a specific image in the hero section, this part can be skipped or adapted.
+    // For now, I'll assume you might add one later or it refers to the background banner.
+    // If it refers to the background banner, the 'show-banner' class already handles it.
+    // If you want a separate image, you'll need to add an <img> tag inside .hero-content
+    setTimeout(() => {
+      // Example if you add an <img> tag inside .hero-content:
+      // heroImage.classList.add('show-image');
+      // If it's the banner, the existing script already handles it:
+      document.querySelector('.banner').classList.add('show-banner');
+    }, 1500); // Adjust delay as needed after name appears
+
+    // 3. Show Header (nav)
+    setTimeout(() => {
+      nav.classList.add('show-nav');
+      document.body.style.overflow = 'auto'; // Re-enable scroll
+    }, 2500); // Adjust delay as needed after photo appears
+  });
+
+</script>
+<script>
+  // Aguarda o tempo da animação do typewriter (3.5s)
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.querySelector('.banner').classList.add('show-banner');
+    }, 3500); // mesmo tempo do typewriter
+  });
+</script>
+</body>
+</html>
