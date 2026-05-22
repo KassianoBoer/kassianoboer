@@ -215,14 +215,14 @@ body {
       backdrop-filter: blur(10px);
     }
     
-    /* Videos Section */
-    .videos-section {
+    /* Discography Section */
+    .discography-section {
       padding: 100px 0;
       background: url('bar_vintage_sharp.jpg') center/cover no-repeat fixed;
       position: relative;
     }
     
-    .videos-section::before {
+    .discography-section::before {
       content: '';
       position: absolute;
       top: 0;
@@ -232,44 +232,91 @@ body {
       background: rgba(0,0,0,0.7);
     }
     
-    .videos-content {
+    .discography-content {
       position: relative;
       z-index: 2;
       text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
     
-    .videos-section h2 {
+    .discography-section h2 {
       font-size: 3rem;
       font-weight: 300;
       letter-spacing: 2px;
       margin-bottom: 50px;
       text-transform: uppercase;
     }
-    
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
+
+    .spotify-button {
+      display: inline-block;
+      margin-bottom: 50px;
+      padding: 15px 40px;
+      background: #1DB954;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      font-size: 1rem;
     }
-    
-    .video-item {
+
+    .spotify-button:hover {
+      background: #1ed760;
+      transform: translateY(-2px);
+    }
+
+    .recent-release {
       background: rgba(255,255,255,0.1);
       border-radius: 10px;
-      overflow: hidden;
+      padding: 40px;
       backdrop-filter: blur(10px);
+      margin-top: 30px;
     }
-    
-    .video-item img {
+
+    .recent-release h3 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      color: #1DB954;
+    }
+
+    .album-cover {
+      max-width: 300px;
+      margin: 0 auto 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .album-cover img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      height: auto;
+      border-radius: 10px;
     }
-    
-    .video-item .video-info {
-      padding: 20px;
+
+    .album-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: #1DB954;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .album-button:hover {
+      background: #1ed760;
+      transform: translateY(-2px);
     }
     
     /* Bio Section */
@@ -673,7 +720,7 @@ body {
       }
       
       .music-section h2,
-      .videos-section h2,
+      .discography-section h2,
       .bio-text h2,
       .tour-section h2,
       .contato-section h2 {
@@ -691,6 +738,10 @@ body {
 
       .modal-counter {
         bottom: 10px;
+      }
+
+      .album-cover {
+        max-width: 200px;
       }
     }
 @keyframes slideDownFade {
@@ -773,7 +824,7 @@ body {
 <body>
   <nav>
     <a href="#home">HOME</a>
-    <a href="#videos">VIDEOS</a>
+    <a href="#discografia">DISCOGRAFIA</a>
     <a href="#bio">BIO</a>
     <a href="#tour">TOUR / AGENDA</a>
     <a href="#nopalco">NO PALCO</a>
@@ -783,221 +834,30 @@ body {
   <section id="home" class="hero">
     <div class="hero-content">
       <h1>Kassiano Boer</h1>
-      <p class="subtitle">Blues • Folk • Rock • Country • Surf Music</p>
-    </div>
+          </div>
   </section>
 
 <!-- ======================= -->
-<!-- SEÇÃO 1: PUBS E SHOWS -->
+<!-- SEÇÃO: DISCOGRAFIA -->
 <!-- ======================= -->
-<section id="videos" class="videos-section pubs-section">
-  <div class="videos-content">
-    <div class="video-carousel-container">
-      <h2 class="fade-in-global">🎸 PUBS E SHOWS</h2>
-      <p class="intro-text fade-in-delay">
-        Quer levantar a galera? Aqui estão os shows mais animados — perfeitos para festas, aniversários e noites cheias de energia e diversão!
-      </p>
-      <div class="video-carousel">
-        <div class="video-slide">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/MBUmGhZsBsM" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-slide">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/vF0cK8nyYdU" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-slide">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/OQ7JpPgYnac" frameborder="0" allowfullscreen></iframe>
-        </div>
-<div class="video-slide">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/EC7mlXzszxc" frameborder="0" allowfullscreen></iframe>
-        </div>
-<div class="video-slide">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/0o92nlWFLrc" frameborder="0" allowfullscreen></iframe>
-        </div>
-<div class="video-slide">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/cJu1kAoO8n4" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <!-- Adicione mais vídeos de pubs e shows aqui -->
+<section id="discografia" class="discography-section">
+  <div class="discography-content">
+    <h2 class="fade-in">🎵 DISCOGRAFIA</h2>
+    
+    <a href="https://open.spotify.com/intl-pt/artist/3x3bb6Nr05bySWPsHLMTnH" class="spotify-button" target="_blank">Ouça Agora</a>
+
+    <div class="recent-release">
+      <h3>Lançamento Recente</h3>
+      
+      <div class="album-cover">
+        <img src="capa_album.jpg" alt="Desabafo - Kassiano Boer">
       </div>
-      <button class="video-nav prev">&#10094;</button>
-      <button class="video-nav next">&#10095;</button>
+
+      <a href="https://open.spotify.com/intl-pt/album/5xKHDkjkizhHKHUiNy9WGE?si=oHDEspGwSe2-KM9pNjQ_ww" class="album-button" target="_blank">Ouvir o Álbum</a>
     </div>
   </div>
 </section>
 
-<!-- ======================= -->
-<!-- SEÇÃO 2: CASAMENTOS E EVENTOS -->
-<!-- ======================= -->
-<section id="videos-casamentos" class="videos-section casamentos-section">
-  <div class="videos-content">
-    <div class="video-carousel-container">
-      <h2 class="fade-in-global">💍 CASAMENTOS E EVENTOS</h2>
-      <p class="intro-text fade-in-delay">
-        Quer tornar seus momentos ainda mais especiais? Aqui estão músicas suaves e cheias de sentimento — perfeitas para casamentos, jantares e eventos elegantes.
-      </p>
-      <div class="video-carousel">
-        <div class="video-slide">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/3pX8_cW0OJc" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-slide">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/6Qn3I8voO9U" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-slide">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/gqLUpw762Xg" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-slide">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/ZK6RI-IEFhU" frameborder="0" allowfullscreen></iframe>
-        </div>
-<div class="video-slide">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/3PHiLh_GZ8w" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <!-- Adicione mais vídeos de casamentos aqui -->
-      </div>
-      <button class="video-nav prev">&#10094;</button>
-      <button class="video-nav next">&#10095;</button>
-    </div>
-  </div>
-</section>
-
-<style>
-/* ======================= */
-/* Estilos base do carrossel */
-/* ======================= */
-.video-carousel-container {
-  position: relative;
-  max-width: 90%;
-  margin: 0 auto;
-  padding: 40px 0;
-}
-.video-carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 20px;
-  padding-bottom: 10px;
-}
-.video-slide {
-  flex: 0 0 auto;
-  width: 100%;
-  max-width: 500px;
-  border-radius: 10px;
-  padding: 10px;
-}
-.video-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.7);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-}
-.video-nav.prev { left: 0; }
-.video-nav.next { right: 0; }
-
-/* ======================= */
-/* Seção Pubs e Shows */
-/* ======================= */
-.pubs-section {
-  background: linear-gradient(180deg, #111 0%, #222 100%);
-  color: white;
-  text-align: center;
-  padding-top: 80px; /* garante que a seção tenha altura suficiente */
-}
-.pubs-section h2 {
-  font-size: 2.2rem;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  animation: pulse 3s infinite;
-}
-.pubs-section .intro-text {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto 30px;
-  color: #ffd700;
-  line-height: 1.6;
-}
-.pubs-section .video-slide {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(255,255,255,0.2);
-}
-
-/* ======================= */
-/* Seção Casamentos e Eventos */
-/* ======================= */
-.casamentos-section {
-  background: linear-gradient(180deg, #ffe4e1 0%, #fff 100%);
-  color: #333;
-  text-align: center;
-  padding-top: 80px;
-}
-.casamentos-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  color: #e91e63; /* título mais vivo */
-}
-.casamentos-section .intro-text {
-  font-size: 1.15rem;
-  max-width: 700px;
-  margin: 0 auto 30px;
-  color: #ff4081; /* frase mais viva */
-  line-height: 1.6;
-}
-
-/* ======================= */
-/* Fade-in global (para todos os títulos do site) */
-/* ======================= */
-.fade-in-global {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeIn 1s forwards;
-}
-
-/* Introdução com leve delay */
-.fade-in-delay {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeIn 1.2s forwards;
-  animation-delay: 0.4s;
-}
-
-/* Animações */
-@keyframes pulse {
-  0%, 100% { text-shadow: 0 0 10px #ff6600; }
-  50% { text-shadow: 0 0 25px #ff3300; }
-}
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Scroll suave para links internos */
-html {
-  scroll-behavior: smooth;
-}
-</style>
-
-<script>
-// Navegação carrosséis
-document.querySelectorAll('.video-carousel-container').forEach(container => {
-  const carousel = container.querySelector('.video-carousel');
-  const prev = container.querySelector('.video-nav.prev');
-  const next = container.querySelector('.video-nav.next');
-
-  prev.addEventListener('click', () => {
-    carousel.scrollBy({ left: -500, behavior: 'smooth' });
-  });
-  next.addEventListener('click', () => {
-    carousel.scrollBy({ left: 500, behavior: 'smooth' });
-  });
-});
-</script>
   <section id="bio" class="bio-section">
     <div class="bio-content">
       <div class="bio-text">
@@ -1006,15 +866,15 @@ document.querySelectorAll('.video-carousel-container').forEach(container => {
           <div class="bio-slides">
             <div class="bio-slide active">
               <h3>História</h3>
-              <p>Nascido em uma família que adora música, iniciou ainda criança sua formação, cantando tudo que ouvia no rádio e aos 8 anos, aprendia a tocar Violão e Gaita de boca como auto-didata. Sempre tocava e cantava junto com os primos nas festas de família.</p>
+              <p>Kassiano Boer iniciou seus primeiros passos na música aos 8 anos de idade, em 2003, quando ganhou seu primeiro violão de sua vó paterna. Auto didata, aprendeu sozinho a tocar Violão e Gaita de boca, e na adolescência compôs suas primeiras cancões. Mas foi aos 26 anos de idade, em 2021 que percebeu que poderia gravar músicas autorais, visto que a essa altura já tinha inúmeros rascunhos e mais de 150 músicas prontas, decidindo assim, lançar seu primeiro álbum, "Desabafo", lançado em 2026, composto, produzido, gravado, mixado, e masterizado pelo próprio compositor Kassiano.</p>
             </div>
             <div class="bio-slide">
               <h3>Carreira</h3>
-              <p>Músico profissional há 10 anos, Kassiano ja realizou shows em grandes eventos e estabelecimentos de diversas regiões do Sul do país, como Litoral Catarinense, Serra Catarinense, Serra Gaúcha, Litoral gaúcho, região Metropolitana, Vale dos sinos e Vale do Taquari. E assim vai trilhando sua caminhada.</p>
+              <p>Seu primeiro álbum teve dedicatória a toda sua família, desde parentes próximos até distantes, em especial a família do seu "tio Zé" e seu "tio Tonho", ambos falecidos. Dedicou também para amigos, já que foi nesse círculo que aprendeu a tocar para outras pessoas. Sua música vem inspirada humildemente em artistas que para ele são fontes de inspirações e símbolos, como os 3 compositores que ele abertamente mais admira, Bob Dylan, Paul McCartney e Raul Seixas.</p>
             </div>
             <div class="bio-slide">
               <h3>Estilo</h3>
-              <p>Com influências do Rock, Folk, Country, Blues, Pop Rock e Surf Music, Kassiano traz autenticidade no repertório nas suas versões de clássicos e top hits que todo mundo gosta de ouvir e cantar junto.</p>
+              <p>Antes de se tornar compositor e focar na autoria, ficou conhecido por se apresentar durante 11 anos em várias regiões do Rio Grande do Sul e Santa Catarina, no Brasil, tocando covers em Violão e Gaita de boca, sendo presença marcada em diversos eventos nacionais. Hoje se dedica exclusivamente a shows autorais e composição, tendo novos álbuns previstos para serem lançados em breve.</p>
             </div>
           </div>
           <div class="bio-navigation">
